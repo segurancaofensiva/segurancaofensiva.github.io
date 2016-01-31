@@ -56,9 +56,10 @@
 						<div class="12u skel-cell-mainContent">
 							<!-- Content -->
 								<article class="box is-post">
+									<div class="image image-full"><img src="/images/blog/teclado_collors.png"/><a href="" class="img-copy"></a></div>
 									<div class="post-infos">
 										<ul class="tags">
-											<li><a class="button" href="category/conteudo.html">Conteúdo</a></li>
+											<li><a class="button" href="category/web.html">Web</a></li>
 												<li><a class="button button-alt" href="tag/cross-site-scripting.html">Cross-site scripting</a></li>
 
 												<li><a class="button button-alt" href="tag/xss.html">Xss</a></li>
@@ -68,11 +69,11 @@
 										</ul>
 									</div>
 
-									<div class="pennant pennant-alt date">2015-10-21</div>
+									<div class="pennant pennant-alt date">2016-10-21</div>
 									<h2>Cross-site scripting (XSS)</h2>
 									<h1>Uma técnica de ataque ao navegador do usuário</h1>
 <p>É um tipo de vulnerabilidade que permite a injeção de códigos maliciosos em uma aplicação/site web. Esses códigos maliciosos são interpretados/executados pelo navegador do usuário, esse tipo de falha tem como foco o usuário e não o servidor do site(client-side-script).
-    OBS.: Em alguns casos específicos o servidor pode ser afetado pelas operações do lado do usuário. Mas não entraremos em detalhes sobre esse assunto.</p>
+    OBS.: Em alguns casos específicos o servidor pode ser afetado pelas operações do lado do usuário. Mas não entraremos em detalhes sobre esse assunto.<br> Existem dois tipos de técnicas de exploração da falha, que são mostradas a seguir.</p>
 <p><b>Não persistente:</b><br>
 É fornecido uma entrada de dados para o sistema. O sistema irá processar essa entrada de dados e exibir um resultado. Esse resultado é mostrado junto com o código da entrada de dados, se não for tratado, a entrada de dados é processada como sendo parte do código(HTML, javascript).</p>
 <p><em>Passo-a-passo:</em>
@@ -80,20 +81,53 @@
 <br>2 - No campo de busca efetuar a seguinte busca, postando um código javascript: alert("Eu sou um alerta!");
 <br>3 - Note que o site irá processar a busca e mostrar o seguinte resultado: Nenhum resultado encontrado para: alert("Eu sou um alerta!");
 <br>4 - Se esse site não tivesse tratamento adequado o java script seria executado.
-<br>5 - O cracker, poderia distribuir a URL(www.buscador.com.br/busca/Pesquisar&amp;q=alert("Hello!+I+am+an+alert+box!!") gerada pelo site via email por exemplo e todo usuário que abrisse a URL executaria o código achando que é seguro por estar em um site conhecido.</p>
+<br>5 - O responsável pelo ataque, poderia distribuir a URL(www.buscador.com.br/busca/Pesquisar&amp;q=alert("Eu+sou+um+alerta!") gerada pelo site via email por exemplo e todo usuário que abrisse a URL executaria o código achando que é seguro por estar em um site conhecido.</p>
 <p><b>Persistente</b><br>
 A diferença entre o tipo anterior é que a entrada de dados fornecida aqui será armazenada no site. </p>
 <p><em>Passo-a-passo:</em>
-<br>1 - O cracker faz um post em um fórum
+<br>1 - O responsável pelo ataque faz um post em um fórum
 <br>2 - O contéudo desse post será um código javascript: alert("Eu sou um alerta!");
 <br>3 - Os usuário que acessarem aquele post em especifico terão o código javascript executado em seus navegadores.</p>
 <p><b>Outro exemplo(persistente):</b>
 <br>1 - Em um sistema de controle de estoque web
-<br>2 - Um cracker poderia cadastrar um material com o nome de “alert("Eu sou um alerta!");”. 
-<br>3 - Sempre que algum usuário for acessar o cadastro de materiais, terá o código executado em seu navegador.</p>
+<br>2 - Alguém poderia cadastrar um material com o nome de “alert("Eu sou um alerta!");”. 
+<br>3 - Sempre que algum usuário acessar o cadastro, buscas ou outras informações que retornem esse material, terá o código executado em seu navegador.</p>
 <p><b>Tutorial youtube:</b>
 <iframe title="YouTube video player" class="youtube-player" type="text/html"  width="560" height="315" src="https://www.youtube.com/embed/nl3D3Q-Rfqs" frameborder="0" allowfullscreen></iframe></p>
+<div id="disqus_thread"></div>
+
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//seguranaofensiva.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 								</article>
+ <div id="disqus_thread" class="box"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'https://disqus.com/home/forums/seguranaofensiva/';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
 						</div>
 					</div>
 				</div>
@@ -119,6 +153,21 @@ A diferença entre o tipo anterior é que a entrada de dados fornecida aqui ser�
 											<span class="date">out <strong>21</strong></span>
 											<h3><a href="XSS.html">Cross-site scripting (XSS)</a></h3>
 											<p><p>Uma técnica de ataque ao navegador do usuário</p></p>
+										</li>
+										<li>
+											<span class="date">out <strong>21</strong></span>
+											<h3><a href="fireeye-exploitation-project-zeros.html">FireEye Exploitation: Project Zero’s Vulnerability of the Beast</a></h3>
+											<p><p>Explorando um hardware(FireEye) que filtra conteúdo da rede</p></p>
+										</li>
+										<li>
+											<span class="date">out <strong>21</strong></span>
+											<h3><a href="CSRF.html">Cross-site request forgery (CSRF)</a></h3>
+											<p><p>Desconfie do seu amigo</p></p>
+										</li>
+										<li>
+											<span class="date">out <strong>21</strong></span>
+											<h3><a href="SQL_Injection.html">SQL Injection</a></h3>
+											<p><p>A transparência é a abertura ao conhecimento</p></p>
 										</li>
 									</ul>
 								</section>
@@ -157,7 +206,9 @@ A diferença entre o tipo anterior é que a entrada de dados fornecida aqui ser�
 										<h2>Categorias</h2>
 									</header>
 									<ul class="divided">
-											<li><a href="/category/conteudo.html">Conteúdo</a></li>
+											<li><a href="/category/google-project-zero.html">Google Project Zero</a></li>
+											<li><a href="/category/mobile.html">Mobile</a></li>
+											<li><a href="/category/web.html">Web</a></li>
 									</ul>
 								</section>
 							</div>
@@ -168,9 +219,9 @@ A diferença entre o tipo anterior é que a entrada de dados fornecida aqui ser�
 										<h2>Social</h2>
 									</header>
 									<ul class="social">
-											<li class="facebook"><a href="https://www.facebook.com/teste3" class="icon48 icon48-1">Facebook</a></li>
-											<li class="twitter"><a href="http://twitter.com/teste2" class="icon48 icon48-2">Twitter</a></li>
-										<li class="linkedin"><a href="http://www.linkedin.com/pub/teste" class="icon48 icon48-4">LinkedIn</a></li>
+											<li class="facebook"><a href="https://www.facebook.com/ramon.d.saraiva" class="icon48 icon48-1">Facebook</a></li>
+											<li class="twitter"><a href="http://twitter.com/RamonPieri" class="icon48 icon48-2">Twitter</a></li>
+										<li class="linkedin"><a href="https://br.linkedin.com/in/ramondepierisaraiva" class="icon48 icon48-4">LinkedIn</a></li>
 											<li class="youtube"><a href="https://www.youtube.com/channel/UCz_yfQ99DRAgBkyZ4KQjigQ" class="icon48 icon48-3">Google+</a></li>
 										
 									</ul>

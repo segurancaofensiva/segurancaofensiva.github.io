@@ -48,18 +48,58 @@
 		<!-- Main Wrapper -->
 			<div id="main-wrapper">
 				<div class="container">
-<h1>Archives for Segurança Ofensiva</h1>
+<div class="row">
+	<div class="12u">
+			<section>
+				<div>
+					<div class="row">
+						<div class="12u skel-cell-mainContent">
+							<!-- Content -->
+								<article class="box is-post">
+									<div class="post-infos">
+										<ul class="tags">
+											<li><a class="button" href="category/conteudo.html">Conteúdo</a></li>
+												<li><a class="button button-alt" href="tag/cross-site-scripting.html">Cross-site scripting</a></li>
 
-<dl>
-    <dt>sex 21 outubro 2016</dt>
-    <dd><a href="/XSS.html">Cross-site scripting (XSS)</a></dd>
-    <dt>sex 21 outubro 2016</dt>
-    <dd><a href="/fireeye-exploitation-project-zeros.html">FireEye Exploitation: Project Zero’s Vulnerability of the Beast</a></dd>
-    <dt>qua 21 outubro 2015</dt>
-    <dd><a href="/CSRF.html">Cross-site request forgery (CSRF)</a></dd>
-    <dt>qua 21 outubro 2015</dt>
-    <dd><a href="/SQL_Injection.html">SQL Injection</a></dd>
-</dl>
+												<li><a class="button button-alt" href="tag/xss.html">Xss</a></li>
+
+												<li><a class="button button-alt" href="tag/client-side-script.html">Client-side-script</a></li>
+
+										</ul>
+									</div>
+
+									<div class="pennant pennant-alt date">2015-10-21</div>
+									<h2>Cross-site scripting (XSS)  4</h2>
+									<h1>Uma técnica de ataque ao navegador do usuário2</h1>
+<p>É um tipo de vulnerabilidade que permite a injeção de códigos maliciosos em uma aplicação/site web. Esses códigos maliciosos são interpretados/executados pelo navegador do usuário, esse tipo de falha tem como foco o usuário e não o servidor do site(client-side-script).
+    OBS.: Em alguns casos específicos o servidor pode ser afetado pelas operações do lado do usuário. Mas não entraremos em detalhes sobre esse assunto.</p>
+<p><b>Não persistente:</b><br>
+É fornecido uma entrada de dados para o sistema. O sistema irá processar essa entrada de dados e exibir um resultado. Esse resultado é mostrado junto com o código da entrada de dados, se não for tratado, a entrada de dados é processada como sendo parte do código(HTML, javascript).</p>
+<p><em>Passo-a-passo:</em>
+<br>1 - Entrar no site(fictício): http://www.buscador.com.br
+<br>2 - No campo de busca efetuar a seguinte busca, postando um código javascript: alert("Eu sou um alerta!");
+<br>3 - Note que o site irá processar a busca e mostrar o seguinte resultado: Nenhum resultado encontrado para: alert("Eu sou um alerta!");
+<br>4 - Se esse site não tivesse tratamento adequado o java script seria executado.
+<br>5 - O cracker, poderia distribuir a URL(www.buscador.com.br/busca/Pesquisar&amp;q=alert("Hello!+I+am+an+alert+box!!") gerada pelo site via email por exemplo e todo usuário que abrisse a URL executaria o código achando que é seguro por estar em um site conhecido.</p>
+<p><b>Persistente</b><br>
+A diferença entre o tipo anterior é que a entrada de dados fornecida aqui será armazenada no site. </p>
+<p><em>Passo-a-passo:</em>
+<br>1 - O cracker faz um post em um fórum
+<br>2 - O contéudo desse post será um código javascript: alert("Eu sou um alerta!");
+<br>3 - Os usuário que acessarem aquele post em especifico terão o código javascript executado em seus navegadores.</p>
+<p><b>Outro exemplo(persistente):</b>
+<br>1 - Em um sistema de controle de estoque web
+<br>2 - Um cracker poderia cadastrar um material com o nome de “alert("Eu sou um alerta!");”. 
+<br>3 - Sempre que algum usuário for acessar o cadastro de materiais, terá o código executado em seu navegador.</p>
+<p><b>Tutorial youtube:</b>
+<iframe title="YouTube video player" class="youtube-player" type="text/html"  width="560" height="315" src="https://www.youtube.com/embed/nl3D3Q-Rfqs" frameborder="0" allowfullscreen></iframe></p>
+								</article>
+						</div>
+					</div>
+				</div>
+			</section>
+	</div>
+</div>
 
 				</div>
 			</div>
@@ -82,18 +122,18 @@
 										</li>
 										<li>
 											<span class="date">out <strong>21</strong></span>
-											<h3><a href="fireeye-exploitation-project-zeros.html">FireEye Exploitation: Project Zero’s Vulnerability of the Beast</a></h3>
-											<p><p>Explorando um hardware(FireEye) que filtra conteúdo da rede</p></p>
-										</li>
-										<li>
-											<span class="date">out <strong>21</strong></span>
 											<h3><a href="CSRF.html">Cross-site request forgery (CSRF)</a></h3>
 											<p><p>Desconfie do seu amigo</p></p>
 										</li>
 										<li>
 											<span class="date">out <strong>21</strong></span>
-											<h3><a href="SQL_Injection.html">SQL Injection</a></h3>
-											<p><p>A transparência é a abertura ao conhecimento</p></p>
+											<h3><a href="XSS  10.html">Cross-site scripting (XSS)  10</a></h3>
+											<p><p>Uma técnica de ataque ao navegador do usuário1</p></p>
+										</li>
+										<li>
+											<span class="date">out <strong>21</strong></span>
+											<h3><a href="XSS  2.html">Cross-site scripting (XSS)  2</a></h3>
+											<p><p>Uma técnica de ataque ao navegador do usuário1</p></p>
 										</li>
 									</ul>
 								</section>
@@ -132,9 +172,10 @@
 										<h2>Categorias</h2>
 									</header>
 									<ul class="divided">
-											<li><a href="/category/google-project-zero.html">Google Project Zero</a></li>
+											<li><a href="/category/conteudo.html">Conteúdo</a></li>
+											<li><a href="/category/desktop.html">Desktop</a></li>
+											<li><a href="/category/geral.html">Geral</a></li>
 											<li><a href="/category/mobile.html">Mobile</a></li>
-											<li><a href="/category/web.html">Web</a></li>
 									</ul>
 								</section>
 							</div>
